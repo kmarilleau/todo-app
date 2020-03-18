@@ -2,10 +2,10 @@
     <div class="todo-item">
         <div class="todo-item-content">
           <div class="todo-item-content-title">
-            Test
+            {{ title }}
           </div>
           <div class="todo-item-content-description">
-            Content of todo
+            {{ description }}
           </div>
         </div>
     </div>
@@ -13,7 +13,16 @@
 
 <script>
 export default {
-  name: "TodoItem"
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: false
+    }
+  }
 };
 </script>
 

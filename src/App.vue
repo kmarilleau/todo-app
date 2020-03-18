@@ -2,19 +2,40 @@
   <div id="app">
     <div class="todo-wrapper">
       <div class="todo-container">
-        <TodoList/>
+        <TodoList :todos="todos"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TodoList from '@/components/TodoList'
+import TodoList from "@/components/TodoList";
 
 export default {
   name: "App",
   components: {
     TodoList
+  },
+  data() {
+    return {
+      todos: [
+        {
+          _id: "1",
+          title: "Title1",
+          description: "Description1"
+        },
+        {
+          _id: "2",
+          title: "Title2",
+          description: "Description2"
+        },
+        {
+          _id: "3",
+          title: "Title3",
+          description: "Description3"
+        }
+      ]
+    };
   }
 };
 </script>
