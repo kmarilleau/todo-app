@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="todo-wrapper">
-      <div class="todo-container">
+      <div class="todo-container is-primary">
         <TodoList :todos="todos"/>
         <div class="todo-create-btn-container">
               <Modal/>
@@ -56,8 +56,33 @@ $accent-color-transparent: rgba(245, 245, 220, 0.4);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: $primary-color;
   margin-top: 60px;
+}
+
+.is {
+  &-primary {
+    background-color: $primary-color;
+    color: $accent-color;
+
+    &-transparent {
+      background-color: $primary-color-transparent;
+      color: $accent-color;
+    }
+  }
+  &-accent {
+    background-color: $accent-color;
+    color: $primary-color;
+
+    &-transparent {
+      background-color: $accent-color-transparent;
+      color: $primary-color;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $accent-color;
+      }
+    }
+  }
 }
 
 .todo {
@@ -72,7 +97,6 @@ $accent-color-transparent: rgba(245, 245, 220, 0.4);
     flex-direction: column;
     width: 400px;
     min-height: 400px;
-    background-color: $primary-color;
     border-radius: 5px;
   }
 

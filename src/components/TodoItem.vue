@@ -1,5 +1,5 @@
 <template>
-    <div class="todo-item">
+    <div class="todo-item is-accent">
         <div class="todo-item-content">
           <div class="todo-item-content-title">
             {{ title }}
@@ -27,16 +27,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$primary-color: cornflowerblue;
-$accent-color: beige;
-
 .todo {
   &-item {
-    background-color: $accent-color;
     min-height: 50px;
     margin: 10px;
     padding: 10px;
-    color: $primary-color;
     border-radius: 5px;
     font-size: 23px;
 
