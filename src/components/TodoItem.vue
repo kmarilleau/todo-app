@@ -28,11 +28,11 @@ export default {
 
 <style scoped lang="scss">
 $primary-color: cornflowerblue;
-$secondary-color: beige;
+$accent-color: beige;
 
 .todo {
   &-item {
-    background-color: $secondary-color;
+    background-color: $accent-color;
     min-height: 50px;
     margin: 10px;
     padding: 10px;
