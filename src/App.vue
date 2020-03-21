@@ -4,7 +4,7 @@
       <div class="todo-container is-primary">
         <TodoList :todos="todos"/>
         <div class="todo-create-btn-container">
-              <Modal/>
+              <TodoCreate @formSubmitted="createTodo" />
         </div>
       </div>
     </div>
@@ -13,43 +13,33 @@
 
 <script>
 import TodoList from "@/components/TodoList";
-import Modal from "@/components/Modal";
+import TodoCreate from "@/components/TodoCreate";
 
 export default {
   name: "App",
   components: {
     TodoList,
-    Modal
+    TodoCreate
   },
   data() {
     return {
-      todos: [
-        {
-          _id: "1",
-          title: "Title1",
-          description: "Description1"
-        },
-        {
-          _id: "2",
-          title: "Title2",
-          description: "Description2"
-        },
-        {
-          _id: "3",
-          title: "Title3",
-          description: "Description3"
-        }
-      ]
+      todos: []
     };
+  },
+  methods: {
+    createTodo(todo) {
+      this.todos.push(todo);
+    }
   }
 };
 </script>
 
 <style lang="scss">
-$primary-color: rgb(100, 149, 237);
-$primary-color-transparent: rgba(100, 149, 237, 0.4);
-$accent-color: rgb(245, 245, 220);
-$accent-color-transparent: rgba(245, 245, 220, 0.4);
+$primary-color: rgb(236, 236, 236);
+$primary-color-transparent: rgba(236, 236, 236, 0.4);
+$accent-color: rgb(113, 148, 189);
+$accent-color-transparent: rgba(113, 148, 189, 0.4);
+$error-color: rgb(250, 65, 65);
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -57,6 +47,41 @@ $accent-color-transparent: rgba(245, 245, 220, 0.4);
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+}
+
+.app {
+  &-form {
+    .label {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .form {
+      &-input {
+        padding: 10px;
+        font-size: 17px;
+      }
+      &-control {
+        margin-bottom: 10px;
+      }
+    }
+
+    &-last {
+      margin-bottom: 0;
+    }
+  }
+
+  &-button {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  &-error {
+    color: $error-color;
+  }
 }
 
 .is {

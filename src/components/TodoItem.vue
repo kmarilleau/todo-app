@@ -40,7 +40,7 @@ export default {
         font-weight: bold;
       }
       &-description {
-        font-size: 19px;
+        font-size: 15px;
       }
     }
   }
