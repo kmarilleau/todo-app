@@ -15,6 +15,8 @@
 import TodoList from "@/components/TodoList";
 import TodoCreate from "@/components/TodoCreate";
 
+import store from "@/store";
+
 export default {
   name: "App",
   components: {
@@ -23,12 +25,12 @@ export default {
   },
   data() {
     return {
-      todos: []
+      todos: store.state.todos
     };
   },
   methods: {
     createTodo(todo) {
-      this.todos.push(todo);
+      store.dispatch("createTodo", todo);
     }
   }
 };
@@ -37,9 +39,11 @@ export default {
 <style lang="scss">
 $primary-color: rgb(236, 236, 236);
 $primary-color-transparent: rgba(236, 236, 236, 0.4);
-$accent-color: rgb(113, 148, 189);
-$accent-color-transparent: rgba(113, 148, 189, 0.4);
-$error-color: rgb(250, 65, 65);
+$accent-color: rgb(189, 189, 189);
+$accent-color-transparent: rgba(189, 189, 189, 0.4);
+$warning-color: rgb(250, 154, 65);
+$danger-color: rgb(250, 65, 65);
+$success-color: rgb(128, 207, 141);
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -75,12 +79,13 @@ $error-color: rgb(250, 65, 65);
   &-button {
     font-size: 20px;
     padding: 5px;
+    border: 0px;
     border-radius: 5px;
     font-weight: bold;
   }
 
   &-error {
-    color: $error-color;
+    color: $danger-color;
   }
 }
 
@@ -107,6 +112,15 @@ $error-color: rgb(250, 65, 65);
         background-color: $accent-color;
       }
     }
+  }
+  &-warning {
+    background-color: $warning-color;
+  }
+  &-danger {
+    background-color: $danger-color;
+  }
+  &-success {
+    background-color: $success-color;
   }
 }
 

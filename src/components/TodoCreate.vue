@@ -26,10 +26,10 @@
           </div>
           <button
             @click="submitForm"
-            class="app-button is-primary"
+            class="app-button is-success"
             type="button"
           >
-            &#10003;
+            &#x2714;
           </button>
         </form>
     </Modal>
@@ -68,7 +68,7 @@ export default {
     },
     submitForm() {
       if (this.isFormValid) {
-        this.$emit("formSubmitted", this.form);
+        this.$emit("formSubmitted", {...this.form});
         this.$refs.modal.close();
         this.resetForm();
       } else {
